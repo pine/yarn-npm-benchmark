@@ -76,9 +76,9 @@ async function cleanLocalCache(pkgRoot) {
 
 async function installByEnv(env, pkgRoot) {
   if (~env.indexOf('npm')) {
-    await execByEnv(env, 'npm install', { cwd: pkgRoot })
+    await execByEnv(env, 'npm install --ignore-scripts', { cwd: pkgRoot })
   } else {
-    await execByEnv(env, 'yarn', { cwd: pkgRoot })
+    await execByEnv(env, 'yarn --ignore-scripts', { cwd: pkgRoot })
   }
 }
 
