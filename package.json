@@ -1,0 +1,21 @@
+{
+  "name": "npm-yarn-benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --harmony-async-await index.js"
+  },
+  "license": "Unlicense",
+  "dependencies": {
+    "co-exec": "^1.1.0",
+    "co-fs-extra": "^1.2.1",
+    "csv-line": "^1.2.0",
+    "fancy-log": "^1.2.0",
+    "globby": "^6.1.0",
+    "lodash": "^4.17.2",
+    "p-each-series": "^1.0.0",
+    "p-map": "^1.1.0",
+    "time-span": "^1.0.0"
+  }
+}
