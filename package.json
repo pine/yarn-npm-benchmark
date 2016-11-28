@@ -1,5 +1,5 @@
 {
-  "name": "npm-yarn-benchmark",
+  "name": "yarn-npm-benchmark",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,13 +9,14 @@
   "license": "Unlicense",
   "dependencies": {
     "co-exec": "^1.1.0",
-    "co-fs-extra": "^1.2.1",
     "csv-line": "^1.2.0",
     "fancy-log": "^1.2.0",
     "globby": "^6.1.0",
     "lodash": "^4.17.2",
+    "mz": "^2.6.0",
     "p-each-series": "^1.0.0",
     "p-map": "^1.1.0",
+    "rimraf-promise": "^2.0.0",
     "time-span": "^1.0.0"
   }
 }

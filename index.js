@@ -5,11 +5,12 @@ const exec   = require('child_process').exec
 
 const _           = require('lodash')
 const csvLine     = require('csv-line')
-const fs          = require('co-fs-extra')
+const fs          = require('mz/fs')
 const globby      = require('globby')
 const log         = require('fancy-log')
 const pEachSeries = require('p-each-series')
 const pMap        = require('p-map')
+const rimraf      = require('rimraf-promise')
 const timeSpan    = require('time-span')
 
 // env => ndenv node version
@@ -70,7 +71,7 @@ async function cleanLocalCache(pkgRoot) {
     'node_modules',
     'npm-shrinkwrap.json',
     'yar.lock',
-  ], p => fs.remove(path.join(pkgRoot, p)))
+  ], p => rimraf(path.join(pkgRoot, p)))
 }
 
 async function installByEnv(env, pkgRoot) {
@@ -82,7 +83,7 @@ async function installByEnv(env, pkgRoot) {
 }
 
 async function cleanResultCsv() {
-  await fs.remove(CSV_FILENAME)
+  await rimraf(CSV_FILENAME)
 }
 
 async function logCsv(data) {
