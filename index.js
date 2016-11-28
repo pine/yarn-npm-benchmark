@@ -17,7 +17,7 @@ const timeSpan    = require('time-span')
 const ENVS = {
   'npm@2': '4.6.2',
   'npm@3': '6.9.1',
-  'yarn ': '6.9.1',
+  'yarn' : '6.9.1',
 }
 
 const CSV_FILENAME = 'result.csv'
