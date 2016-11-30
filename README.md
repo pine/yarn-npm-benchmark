@@ -12,6 +12,7 @@ Benchmark for Node package managers
 ## Getting Started
 
 ### 1. Install target Node.js versions
+See also `index.js`.
 
 ```
 $ ndenv install 4.6.2
