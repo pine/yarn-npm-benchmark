@@ -5,7 +5,7 @@ Benchmark for Node package managers
 
 ## Requirements
 
-- Node.js
+- Node v7 ~
 - ndenv
 - yarn
 
