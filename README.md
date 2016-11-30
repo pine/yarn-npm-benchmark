@@ -43,5 +43,23 @@ $ yarn start
 
 ### 4. See `result.csv`
 
+## FAQ
+### Are the npm or yarn caches effective ?
+All caches are disabled.
+
+```
+# clean global cache
+$ npm cache clean
+$ yarn cache clean
+
+# clean local cache
+$ rm -rf node_modules
+$ rm -rf yarn.lock
+$ rm -rf npm-shrinkwrap.json
+```
+
+### What npm or yarn cli options are attached ?
+It is enabled an only `--ignore-scripts` option.
+
 ## License
 Public Domain
