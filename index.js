@@ -100,9 +100,11 @@ async function logCsv(data) {
     const envs     = Object.keys(ENVS)
 
     await pEachSeries(pkgRoots, async pkgRoot => {
+      const basename = path.basename(pkgRoot)     // owner_repo
+      const repo     = basename.replace('_', '/') // owner/repo
+      const result   = [ repo ]
+
       await pEachSeries(envs, async env => {
-        const basename = path.basename(pkgRoot)     // owner_repo
-        const repo     = basename.replace('_', '/') // owner/repo
         log(`Install for ${repo} by ${env}`)
 
         // clean all cache
@@ -116,11 +118,12 @@ async function logCsv(data) {
         await installByEnv(env, pkgRoot)
         const span = end() // ms
 
-        // logging
-        const result = [ repo, env, span ]
-        log('Result:', JSON.stringify(result))
-        await logCsv(result)
+        result.push(env, span)
       })
+
+      // logging
+      log('Result:', JSON.stringify(result))
+      await logCsv(result)
     })
 
     console.log('Successful')
