@@ -104,30 +104,35 @@ async function logCsv(data) {
       const repo     = basename.replace('_', '/') // owner/repo
       const result   = [ repo ]
 
-      await pEachSeries(envs, async env => {
-        log(`Install for ${repo} by ${env}`)
+      try {
+        await pEachSeries(envs, async env => {
+          log(`Install for ${repo} by ${env}`)
 
-        // clean all cache
-        await Promise.all([
-          cleanLocalCache(pkgRoot),
-          cleanGlobalCache(env),
-        ])
+          // clean all cache
+          await Promise.all([
+            cleanLocalCache(pkgRoot),
+            cleanGlobalCache(env),
+          ])
 
-        // install
-        const end  = timeSpan()
-        await installByEnv(env, pkgRoot)
-        const span = end() // ms
+          // install
+          const end  = timeSpan()
+          await installByEnv(env, pkgRoot)
+          const span = end() // ms
 
-        result.push(env, span)
-      })
+          result.push(env, span)
+        })
 
-      // logging
-      log('Result:', JSON.stringify(result))
-      await logCsv(result)
+        // logging
+        log('Result:', JSON.stringify(result))
+        await logCsv(result)
+      } catch (e) {
+        log.error('Error', e)
+        log.error('Skip:', repo)
+      }
     })
 
-    console.log('Successful')
+    log('Successful')
   } catch (e) {
-    console.error('Error', e)
+    log.error('Error', e)
   }
 }()
