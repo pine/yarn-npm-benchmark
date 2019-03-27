@@ -11,12 +11,12 @@
     "co-exec": "^1.1.0",
     "csv-line": "^1.2.0",
     "fancy-log": "^1.2.0",
-    "globby": "^6.1.0",
+    "globby": "^9.1.0",
     "lodash": "^4.17.2",
     "mz": "^2.6.0",
-    "p-each-series": "^1.0.0",
-    "p-map": "^1.1.0",
+    "p-each-series": "^2.0.0",
+    "p-map": "^2.0.0",
     "rimraf-promise": "^2.0.0",
-    "time-span": "^1.0.0"
+    "time-span": "^3.0.0"
   }
 }
