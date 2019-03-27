@@ -1,6 +1,8 @@
 `yarn` & `npm` Benchmark
 ------------------------
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/pine/yarn-npm-benchmark.svg)](https://greenkeeper.io/)
+
 Benchmark for Node package managers
 
 ## Requirements
